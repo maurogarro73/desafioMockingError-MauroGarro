@@ -116,7 +116,7 @@ export const createHash = (password) => bcrypt.hashSync(password, bcrypt.genSalt
 export const isValidPassword = (password, hashPassword) => bcrypt.compareSync(password, hashPassword);
 
 /******************************* FakerJS *******************************/
-import { Faker, es } from '@faker-js/faker';
+import { Faker, es, fakerES } from '@faker-js/faker';
 
 const faker = new Faker({ locale: [es] });
 
@@ -150,6 +150,7 @@ export function generateProduct() {
   return {
     id: faker.database.mongodbObjectId(),
     title: faker.commerce.productName(),
+    description: fakerES.commerce.productDescription(),
     /* description: faker.commerce.productDescription(), */
     price: faker.commerce.price(),
     thumbnail: faker.internet.avatar(),
